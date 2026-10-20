@@ -97,7 +97,17 @@ def analyze_wse_ticker(name, symbol):
 if __name__ == "__main__":
     print("Starting WSE HypeScope Data Test...")
     all_companies = {}
+    latest_quarter = {}
 
     for name, symbol in TICKERS.items():
         df = analyze_wse_ticker(name, symbol)
         all_companies[name] = df
+        if df is not None and not df.empty:
+            latest_quarter[name] = df.iloc[0]
+
+    leaderboard_df = pd.DataFrame(latest_quarter).T
+
+    print("\n==========================================")
+    print(" GPW Watchlist Leaderboard (Latest Quarter)")
+    print("==========================================")
+    print(leaderboard_df)
