@@ -56,9 +56,10 @@ def analyze_wse_ticker(name, symbol):
         print(fcf.head(4))
     else:
         print("\nFree Cash Flow row not found in financial statement.")
-        
+
     if capex is not None and op_cash is not None and not op_cash.empty:
-        capex_pct_op = (capex.abs() / op_cash.abs()) * 100
+        positive_op_cash = op_cash.where(op_cash > 0)
+        capex_pct_op = (capex.abs() / positive_op_cash) * 100
         print("\nCapEx as % of Operating Cash Flow:")
         print(capex_pct_op.head(4).round(2).astype(str) + "%")
 
