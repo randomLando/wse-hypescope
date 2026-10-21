@@ -1,0 +1,23 @@
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+font = "sans-serif"
+headingFont = "sans-serif"
+baseFontSize = 14
+baseRadius = "none"
+buttonRadius = "none"
+showWidgetBorder = true
+paddingTop = "0.5rem"
+paddingBottom = "1rem"
+primaryColor = "#0066cc"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#e4e7eb"
+textColor = "#000000"
+linkColor = "#0000cc"
+borderColor = "#999999"
+dataframeBorderColor = "#cccccc"
+dataframeHeaderBackgroundColor = "#5d6d87"
+dataframeHeaderTextColor = "#ffffff"
+chartCategoricalColors = ["#003399", "#cc0000"]

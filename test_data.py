@@ -8,7 +8,7 @@ TICKERS = {
     "DataWalk": "DAT.WA",
     "Asbis": "ASB.WA",
     "Tauron": "TPE.WA",
-    "PGE": "PGE.WA"
+    "PGE": "PGE.WA",
 }
 
 def safe_get_metric(cashflow_df, row_name):
