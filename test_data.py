@@ -1,3 +1,11 @@
+"""
+WSE HypeScope Data Pipeline Validator.
+
+Data Sources:
+- Stooq (stooq.pl): Index lineups and constituent mapping (see tickers.py).
+- Yahoo Finance (yfinance): Fundamental quarterly cash flow statements and live USD/PLN rate.
+"""
+
 import yfinance as yf
 import pandas as pd
 
@@ -96,6 +104,7 @@ def analyze_wse_ticker(name, symbol):
 
 if __name__ == "__main__":
     print("Starting WSE HypeScope Data Test...")
+    print("Data Sources: Stooq (Constituent Directory) | Yahoo Finance / yfinance (Cash Flows & FX)")
     all_companies = {}
     latest_quarter = {}
 

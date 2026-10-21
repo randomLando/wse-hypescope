@@ -21,6 +21,19 @@ All tickers use the `.WA` suffix for `yfinance`:
 
 ---
 
+## Data Sources
+The dashboard automatically aggregates and cross-validates data from two primary financial sources:
+* **Stooq ([stooq.pl](https://stooq.pl))**:
+  * Scrapes and caches live constituent lists for Warsaw Stock Exchange benchmark indices (**WIG20**, **mWIG40**, **sWIG80**, and **WIG**).
+  * Supplies canonical company names and validates GPW ticker codes against active market listings.
+  * Ensures up-to-date benchmark lineups without manual ticker roster maintenance.
+* **Yahoo Finance ([yfinance](https://github.com/ranaroussi/yfinance))**:
+  * Fetches historical quarterly cash flow statements: **Capital Expenditure (CapEx)**, **Free Cash Flow (FCF)**, and **Operating Cash Flow (OCF)**.
+  * Queries real-time foreign exchange rates (**`PLN=X`**) to convert foreign reporting currencies (e.g. USD for Asbis) into PLN.
+  * Supplements the directory with active GPW `.WA` equities using Yahoo's live WSE equity screener.
+
+---
+
 ## Financial Data Rules
 1. **Safe Row Access:** Never index raw DataFrames directly with `.loc["Capital Expenditure"]` without fallback logic. Smaller WSE companies may omit rows in specific quarters.
 2. **Outflow Normalization:** CapEx values from `yfinance` are usually negative. Apply `.abs()` so spending appears as a positive figure for chart comparisons.

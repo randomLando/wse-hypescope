@@ -1,23 +1,27 @@
 from concurrent.futures import ThreadPoolExecutor
 import datetime
+import importlib
 import json
 import streamlit as st
 import yfinance as yf
 import pandas as pd
 
-from tickers import (
-    CORE_BENCHMARK_TICKERS,
-    fetch_live_index_presets,
-    format_dropdown_options,
-)
+import ui
+importlib.reload(ui)
 from ui import (
     format_cashflow_table,
     render_top_banner,
     render_section_header,
     render_quarter_summary,
+    render_footer,
+)
+from tickers import (
+    CORE_BENCHMARK_TICKERS,
+    fetch_live_index_presets,
+    format_dropdown_options,
 )
 
-st.set_page_config(page_title="WSE HypeScope", layout="wide")
+st.set_page_config(page_title="WSE HypeScope", page_icon="🔭", layout="wide")
 
 _CASHFLOW_KEY_MAP = {
     "quarterlyCapitalExpenditure": "Capital Expenditure",
@@ -274,3 +278,5 @@ if leaderboard_df is not None:
             x_label="Company",
             y_label="CapEx % of OCF"
         )
+
+render_footer()

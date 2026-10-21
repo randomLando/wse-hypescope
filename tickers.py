@@ -1,3 +1,12 @@
+"""
+WSE HypeScope - Equity Directory & Index Lineups.
+
+Data Sources:
+- Stooq (stooq.pl): Primary source for live WIG20, mWIG40, sWIG80, and WIG constituents & company names.
+- BiznesRadar (biznesradar.pl): Live fallback scraper for index constituent tables.
+- Yahoo Finance (yfinance): Live WSE equity screener for active .WA secondary listings.
+"""
+
 from concurrent.futures import ThreadPoolExecutor
 import io
 import re
